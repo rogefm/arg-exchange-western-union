@@ -2,7 +2,7 @@
 
 ## How to config
 
-1. Go to config.js.example and change the values.
+1. Go to config.js and change the values.
    1. Add your api key from scrapingbee. (to get access https://www.scrapingbee.com/)
    2. Add your telegram bot api key. (More informations access https://core.telegram.org/bots#1-what-can-i-do-with-bots)
 
