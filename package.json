@@ -1,0 +1,14 @@
+{
+  "name": "scrapping-ws",
+  "version": "1.0.0",
+  "description": "scrapping Western Union",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rogerio Moura",
+  "license": "ISC",
+  "dependencies": {
+    "scrapingbee": "^1.6.1"
+  }
+}

@@ -1,0 +1,8 @@
+const configs = {
+  apiKey: '',
+  telegramBotApiKey: '',
+};
+
+module.exports = {
+  configs,
+};
