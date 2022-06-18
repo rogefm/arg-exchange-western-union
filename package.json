@@ -9,6 +9,7 @@
   "author": "Rogerio Moura",
   "license": "ISC",
   "dependencies": {
+    "node-fetch": "^2.6.7",
     "scrapingbee": "^1.6.1"
   }
 }

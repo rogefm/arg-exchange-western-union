@@ -1,5 +1,6 @@
 const scrapingbee = require('scrapingbee');
 const { configs } = require('./config');
+const fetch = require('node-fetch');
 
 async function get(url) {
   var client = new scrapingbee.ScrapingBeeClient(configs.apiKey);
