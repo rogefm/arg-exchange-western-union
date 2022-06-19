@@ -28,34 +28,40 @@ async function get(url) {
   return response;
 }
 
+const chatIds = configs.telegramChatIds.split(',');
+
 (async function main() {
   try {
     const response = await get('https://www.westernunion.com/br/es/currency-converter/brl-to-ars-rate.html');
     const decoder = new TextDecoder();
     const text = JSON.parse(decoder.decode(response.data));
 
-    fetch(`https://api.telegram.org/bot${configs.telegramBotApiKey}/sendMessage`, {
-      method: 'POST',
-      body: JSON.stringify({
-        chat_id: '289758835',
-        text: `Olá! hoje a cotação de 1 real para pesos argentino está ${text.exchange}`,
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    chatIds.forEach((chatId) => {
+      fetch(`https://api.telegram.org/bot${configs.telegramBotApiKey}/sendMessage`, {
+        method: 'POST',
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: `Olá! hoje a cotação de 1 real para pesos argentino está ${text.exchange}`,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      })
+        .then((res) => res.json())
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    });
   } catch {
-    fetch(`https://api.telegram.org/bot${configs.telegramBotApiKey}/sendMessage`, {
-      method: 'POST',
-      body: JSON.stringify({
-        chat_id: '289758835',
-        text: `Ocorreu uma falha ao tentar buscar a contação de hoje.`,
-      }),
-      headers: { 'Content-Type': 'application/json' },
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    chatIds.forEach((chatId) => {
+      fetch(`https://api.telegram.org/bot${configs.telegramBotApiKey}/sendMessage`, {
+        method: 'POST',
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: `Olá! hoje a cotação de 1 real para pesos argentino está ${text.exchange}`,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      })
+        .then((res) => res.json())
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err));
+    });
   }
 })();
